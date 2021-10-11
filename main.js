@@ -5,17 +5,20 @@ let finalKmCost = (chilometers * kmCost);
 console.log("Costo per km percorso " + finalKmCost + " €");
 
 const userAge = parseInt(prompt("Quanti anni ha il passeggero?"));
-let minorenniDiscount = (finalKmCost / 100) * 80;
-let vecchiDiscount = (finalKmCost / 100) * 60;
+var minorenniDiscount = (finalKmCost / 100) * 80;
+var vecchiDiscount = (finalKmCost / 100) * 60;
+
+var standardPrice = finalKmCost.toFixed(2);
+var discYoungPrice = minorenniDiscount.toFixed(2);
+var discOldPrice = vecchiDiscount.toFixed(2)
 
 if (userAge < 18) {
-  console.log("il tuo prezzo finale è " + minorenniDiscount + " €");
+  console.log("il tuo prezzo finale è " + discYoungPrice + " €");
+  document.getElementById("price_ticket").innerHTML = ("Dovrai pagare " + discYoungPrice + " €")
 } else if (userAge > 65) {
-  console.log("il tuo prezzo finale è " + vecchiDiscount + " €");
+  console.log("il tuo prezzo finale è " + discOldPrice + " €");
+  document.getElementById("price_ticket").innerHTML = ("Dovrai pagare " + discOldPrice + " €")
 } else {
-  console.log("il tuo prezzo finale è " + finalKmCost + " €");
+  console.log("il tuo prezzo finale è " + standardPrice + " €");
+  document.getElementById("price_ticket").innerHTML = ("Dovrai pagare " + standardPrice + " €")
 }
-
-var n = finalKmCost.toFixed(2);
-var n = minorenniDiscount.toFixed(2);
-var n = vecchiDiscount.toFixed(2);
